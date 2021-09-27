@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <title>Main blog</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h1>Main blog</h1>
+    <form method="get" th:each="el:${posts}" class="alert alert-info mt-2" th:object="${posts}">
+        <h3 th:text="${el.title}"></h3>
+        <p th:text="${el.anons}"></p>
+        <a th:href="@{/blog/{id}(id=${el.id})}">More info</a>
+
+    </form>
+    <a href="/blog/add" type="submit"  class="btn btn-warning">Add blog</a>
+
+
+</div>
+
+
+</body>
+</html>
